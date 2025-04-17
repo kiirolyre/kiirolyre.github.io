@@ -6,60 +6,123 @@
   <title>Depop Reviews - kiirolyre</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Base layout */
+    /* Global box-sizing */
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
       margin: 0;
-      padding: 40px 20px;
+      padding: 20px;
       font-family: 'Lato', sans-serif;
       background: #fefaf7;
       color: #000;
+    }
+
+    /* Container centering and responsive width */
+    .container {
+      max-width: 360px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 10px;
+    }
+
+    /* Header: back arrow and title side by side */
+    .title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .back-button {
+      text-decoration: none;
+      font-size: 24px;
+      color: #000;
+      flex-shrink: 0;
+      width: 32px;
+      text-align: center;
+    }
+    .title-button {
+      flex: 1;
+      width: 100%;              /* full width */
+      padding: 16px;
+      font-size: 20px;
+      border: none;
+      border-radius: 16px;
+      text-align: center;
+      background-color: #c8e7f7;
+      color: #000;
+      height: 58px;             /* fixed height */
+      line-height: 26px;        /* vertical alignment helper */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Reviews list */
+    .review-box {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      gap: 24px;
     }
-    /* Title + back button */
-    .title-wrapper { position: relative; width: 100%; max-width: 390px; margin-bottom: 24px; }
-    .back-button { position: absolute; top: 50%; left: -40px; transform: translateY(-50%); background: none; border: none; font-size: 24px; cursor: pointer; }
-    .back-button a { text-decoration: none; color: black; }
-    .title-button { padding: 16px; font-size: 20px; border: none; border-radius: 16px; text-align: center; background:#f2e9df; color:#000; width:100%; box-sizing:border-box; }
-
-    /* Reviews container */
-    .review-box { width:100%; max-width:390px; display:flex; flex-direction:column; gap:32px; box-sizing:border-box; }
-    .feedback-item { display:flex; gap:12px; align-items:flex-start; margin-left:-48px; }
+    .feedback-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      word-wrap: break-word;
+    }
     .feedback-item img {
-      width: 88px;
-      height: 88px;
+      width: 80px;
+      height: 80px;
       object-fit: cover;
       border-radius: 6px;
       flex-shrink: 0;
-      margin-top: 4px; /* push image 4px lower to align with text */
     }
-    .feedback-text { display:flex; flex-direction:column; gap:4px; }
-    .username { font-weight:700; }
-    .username a{ text-decoration:none; color:inherit; }
-    .stars { color:#e20020; font-size:18px; letter-spacing:3px; }
-    .message { font-weight:400; line-height:1.5; }
-    .time { color:#777; font-size:0.85em; }
+    .feedback-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .username {
+      font-weight: 700;
+    }
+    .username a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .stars {
+      color: #e20020;
+      font-size: 18px;
+      letter-spacing: 3px;
+    }
+    .message {
+      line-height: 1.4;
+    }
+    .time {
+      color: #777;
+      font-size: 0.85em;
+    }
   </style>
 </head>
 <body>
-  <div class="title-wrapper">
-    <div class="back-button"><a href="index.html" title="Back to home">⤺</a></div>
-    <div class="title-button">depop reviews</div>
-  </div>
-
-  <div class="review-box">
-    <!-- Review 1 -->
-    <div class="feedback-item">
-      <img src="https://media-photos.depop.com/b1/21583083/1662520668_0f8448094a574634986ba241149550b4/P1.jpg" alt="">
-      <div class="feedback-text">
-        <div class="username"><a href="https://www.depop.com/sophsophsophi/" target="_blank">@sophsophsophi</a></div>
-        <div class="stars">★★★★★</div>
-        <div class="message">AMAZING SELLER! Very sweet and understanding, my item also got shipped with tons of safety things like bubble wrap to make sure it didn’t get damaged which I really appreciated. Would 100x buy from them again :)</div>
-        <div class="time">4 Mar 2025</div>
-      </div>
+  <div class="container">
+    <div class="title-wrapper">
+      <a href="index.html" class="back-button" title="Back">⤺</a>
+      <div class="title-button">depop reviews</div>
     </div>
-    <!-- Review 2 -->
+    <div class="review-box">
+      <!-- Sample review item -->
+      <div class="feedback-item">
+        <img src="https://media-photos.depop.com/b1/21583083/1662520668_0f8448094a574634986ba241149550b4/P1.jpg" alt="@sophsophsophi">
+        <div class="feedback-text">
+          <div class="username"><a href="https://www.depop.com/sophsophsophi/" target="_blank" rel="noopener">@sophsophsophi</a></div>
+          <div class="stars">★★★★★</div>
+          <div class="message">AMAZING SELLER! Very sweet and understanding, my item also got shipped with tons of safety things like bubble wrap to make sure it didn’t get damaged which I really appreciated. Would 100x buy from them again :)</div>
+          <div class="time">4 Mar 2025</div>
+        </div>
+      </div>
+      <!-- Add additional <div class="feedback-item"> blocks below -->
+
+
+   <!-- Review 2 -->
     <div class="feedback-item">
       <img src="https://media-photos.depop.com/b1/21583083/1863697181_4b5db0c280a04003a1594a75a799f972/P1.jpg" alt="">
       <div class="feedback-text">
@@ -283,8 +346,10 @@
         <div class="time">18 Oct 2023</div>
       </div>
     </div>
+
+
+      
+    </div>
   </div>
 </body>
-</html>
-</html>
 </html>
