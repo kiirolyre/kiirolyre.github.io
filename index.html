@@ -1,12 +1,188 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Redirecting...</title>
-  <script>
-    window.location.href = "https://kiirolyre.square.site";
-  </script>
+  <!-- Page setup -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kiirolyre</title>
+
+  <!-- Google Font import: Lato -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Apply box-sizing to all elements */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Body layout and styling */
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Lato', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fefaf7; /* Light cream background */
+      color: #000;
+      min-height: 100vh;
+    }
+
+    /* Logo image (under the bunny SVG) */
+    .logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    /* SVG bunny illustration */
+    .bunny-doodle {
+      width: 100px;
+      height: auto;
+      margin-bottom: 12px;
+    }
+
+    /* Title and subtitle container */
+    .title-subtitle-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* Left align text */
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 40px;
+    }
+
+    /* Main site title */
+    .title {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 10px 0 4px;
+    }
+
+    /* Site subtitle / tagline */
+    .subtitle {
+      font-size: 14px;
+    }
+
+    /* Wrapper for all the buttons */
+    .buttons {
+      width: 100%;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px; /* Space between buttons */
+    }
+
+    /* Base button style */
+    .button {
+      position: relative;
+      overflow: visible; /* Needed for the sparkle overlay */
+      padding: 16px;
+      font-size: 20px;
+      border: none;
+      border-radius: 16px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      width: 100%;
+      background-color: #007BFF; /* Default blue */
+      color: white;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    /* Button hover effect */
+    .button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    /* Button active (press) effect */
+    .button:active {
+      background-color: #003f7f;
+      transform: scale(0.98);
+      transition: background-color 0.1s ease, transform 0.1s ease;
+    }
+
+    /* Light blue themed button (used for most links) */
+    .button.blue {
+      background-color: #c8e7f7;
+      color: #000;
+    }
+
+    /* Beige button with bold text (used for Depop review button) */
+    .button.beige {
+      background-color: #f2e9df;
+      color: #000;
+      font-weight: bold;
+    }
+
+    /* Sparkle emoji animation on top right of the depop button */
+    .sparkle-overlay {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 24px;
+      animation: floatSparkles 2s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 2; /* On top of button */
+    }
+
+    /* Sparkle animation movement */
+    @keyframes floatSparkles {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(-4px); opacity: 0.6; }
+    }
+
+    /* Responsive styles for larger screens */
+    @media (min-width: 768px) {
+      body {
+        padding: 60px 40px;
+      }
+      .button {
+        font-size: 22px;
+        padding: 18px;
+      }
+      .title {
+        font-size: 36px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <p>If you are not redirected automatically, <a href="https://kiirolyre.square.site">click here</a>.</p>
+
+  <!-- Bunny SVG illustration at the top -->
+  <svg class="bunny-doodle" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 20 C15 10, 5 5, 10 20" stroke="#000" stroke-width="3" fill="none"/>
+    <path d="M100 20 C95 10, 85 5, 90 20" stroke="#000" stroke-width="3" fill="none"/>
+    <path d="M60 20 Q65 35 60 50 Q55 65 65 70 Q75 75 70 90" stroke="#000" stroke-width="3" fill="none"/>
+    <path d="M50 90 Q60 95 70 90" stroke="#000" stroke-width="3" fill="none"/>
+    <line x1="58" y1="60" x2="58" y2="70" stroke="#000" stroke-width="2" />
+    <line x1="62" y1="60" x2="62" y2="70" stroke="#000" stroke-width="2" />
+  </svg>
+
+  <!-- Main logo image -->
+  <div class="logo">
+    <img src="logo.png" alt="Logo" /> <!-- Replace 'logo.png' with your own file -->
+  </div>
+
+  <!-- Title and tagline -->
+  <div class="title-subtitle-wrapper">
+    <div class="title">kiirolyre</div> <!-- Your brand name -->
+    <div class="subtitle">welcome to my site!! i promise my .zip isn’t malware hehe</div> <!-- Catchy tagline -->
+  </div>
+
+  <!-- Navigation buttons -->
+  <div class="buttons">
+    <!-- Each <a> can link to another page or section -->
+    <a href="#" class="button blue">about me</a>
+    <a href="#" class="button blue">gallery</a>
+    <a href="#" class="button blue">3D models</a>
+
+    <!-- Special Depop button with sparkles -->
+    <a href="#" class="button beige">
+      depop reviews
+      <span class="sparkle-overlay">✨✨</span>
+    </a>
+  </div>
+
 </body>
 </html>
