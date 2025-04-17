@@ -28,19 +28,22 @@
       min-height: 100vh;
     }
 
-    /* Logo image (under the bunny SVG) */
+
+    /* Logo container: centered */
     .logo {
-      width: 150px;
-      margin-bottom: 20px;
-      align-items: center;
+      width: 300px;
+      margin: 0 auto ; /* center horizontally and space below */
+      text-align: center;
+    }
+    /* Logo image: block and centered */
+    .logo img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
     }
 
-    /* SVG bunny illustration */
-    .bunny-doodle {
-      width: 100px;
-      height: auto;
-      margin-bottom: 12px;
-    }
+    
 
     /* Title and subtitle container */
     .title-subtitle-wrapper {
