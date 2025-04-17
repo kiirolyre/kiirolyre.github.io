@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - kiirolyre</title>
+
+  <!-- Import the Lato font for consistent styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Base page styles: font, alignment, and background */
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Lato', sans-serif;
+      background: #fefaf7;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Container for the title and back button */
+    .title-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 24px;
+    }
+
+    /* Back button styled to sit to the left of the title */
+    .back-button {
+      position: absolute;
+      top: 50%;
+      left: -40px;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .back-button a {
+      text-decoration: none;
+      color: black;
+    }
+
+    /* Blue title bar styled to match homepage button */
+    .title-button {
+      padding: 16px;
+      font-size: 20px;
+      border: none;
+      border-radius: 16px;
+      text-align: center;
+      text-decoration: none;
+      background-color: #c8e7f7;
+      color: #000;
+      width: 100%;
+      box-sizing: border-box;
+      height: 58px;
+      line-height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Beige container for the image grid */
+    .gallery-box {
+      background-color: #f2e9df;
+      padding: 12px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 300px;
+      box-sizing: border-box;
+    }
+
+    /* Masonry-style collage layout */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    /* Cropped thumbnails with varied heights */
+    .gallery-grid a {
+      display: block;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #132234;
+      transition: transform 0.2s ease;
+    }
+
+    .gallery-grid a:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Different heights for collage effect */
+    .tall {
+      grid-row: span 2;
+      aspect-ratio: 1 / 1.6;
+    }
+
+    .short {
+      aspect-ratio: 1 / 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Title area with back button and page title -->
+  <div class="title-wrapper">
+    <div class="back-button">
+      <a href="index.html" title="Back to home">⤺</a>
+    </div>
+    <div class="title-button">gallery</div>
+  </div>
+
+  <!-- Beige box holding the image collage -->
+  <div class="gallery-box">
+    <div class="gallery-grid">
+      <!-- Replace these with real image file paths -->
+      <a href="fullsize1.jpg" target="_blank"><img src="thumb1.jpg" alt="image" class="short" /></a>
+      <a href="fullsize2.jpg" target="_blank"><img src="thumb2.jpg" alt="image" class="short" /></a>
+      <a href="fullsize3.jpg" target="_blank"><img src="thumb3.jpg" alt="image" class="short" /></a>
+      <a href="fullsize4.jpg" target="_blank"><img src="thumb4.jpg" alt="image" class="tall" /></a>
+      <a href="fullsize5.jpg" target="_blank"><img src="thumb5.jpg" alt="image" class="short" /></a>
+      <a href="fullsize6.jpg" target="_blank"><img src="thumb6.jpg" alt="image" class="tall" /></a>
+      <a href="fullsize7.jpg" target="_blank"><img src="thumb7.jpg" alt="image" class="short" /></a>
+      <a href="fullsize8.jpg" target="_blank"><img src="thumb8.jpg" alt="image" class="short" /></a>
+      <a href="fullsize9.jpg" target="_blank"><img src="thumb9.jpg" alt="image" class="short" /></a>
+      <a href="fullsize10.jpg" target="_blank"><img src="thumb10.jpg" alt="image" class="tall" /></a>
+      <a href="fullsize11.jpg" target="_blank"><img src="thumb11.jpg" alt="image" class="short" /></a>
+      <a href="fullsize12.jpg" target="_blank"><img src="thumb12.jpg" alt="image" class="short" /></a>
+      <a href="fullsize13.jpg" target="_blank"><img src="thumb13.jpg" alt="image" class="short" /></a>
+      <a href="fullsize14.jpg" target="_blank"><img src="thumb14.jpg" alt="image" class="tall" /></a>
+      <a href="fullsize15.jpg" target="_blank"><img src="thumb15.jpg" alt="image" class="short" /></a>
+      <a href="fullsize16.jpg" target="_blank"><img src="thumb16.jpg" alt="image" class="short" /></a>
+      <a href="fullsize17.jpg" target="_blank"><img src="thumb17.jpg" alt="image" class="tall" /></a>
+      <a href="fullsize18.jpg" target="_blank"><img src="thumb18.jpg" alt="image" class="short" /></a>
+    </div>
+  </div>
+
+</body>
+</html>
