@@ -19,18 +19,18 @@
 
     /* Container centering and responsive width */
     .container {
-      max-width: 360px;
+      max-width: 380px;
       margin: 0 auto;
       width: 100%;
       padding: 0 10px;
     }
 
-    /* Header: back arrow and title side by side */
+    /* Header: back arrow and title side by side, left-aligned in container */
     .title-wrapper {
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 24px;
+      margin: 0 0 24px; /* left-align within container */
     }
     .back-button {
       text-decoration: none;
@@ -41,8 +41,6 @@
       text-align: center;
     }
     .title-button {
-      flex: 1;
-      width: 100%;              /* full width */
       padding: 16px;
       font-size: 20px;
       border: none;
@@ -50,8 +48,9 @@
       text-align: center;
       background-color: #c8e7f7;
       color: #000;
-      height: 58px;             /* fixed height */
-      line-height: 26px;        /* vertical alignment helper */
+      width: 300px;            /* fixed width matching homepage */
+      height: 58px;            /* fixed height matching homepage */
+      line-height: 26px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -120,6 +119,10 @@
         </div>
       </div>
       <!-- Add additional <div class="feedback-item"> blocks below -->
+
+
+
+
 
 
    <!-- Review 2 -->
@@ -346,6 +349,9 @@
         <div class="time">18 Oct 2023</div>
       </div>
     </div>
+
+
+      
 
 
       
