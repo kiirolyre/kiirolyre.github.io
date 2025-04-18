@@ -9,10 +9,7 @@
   <!-- Google Font import: Lato -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
-  <audio id="click-sound" src="images/click.mp3" preload="auto"></audio>
 
-
-  
   <style>
     /* Apply box-sizing to all elements */
     * {
@@ -183,14 +180,11 @@
     </a>
   </div>
 
-  <script>
-  // grab the audio element
-  const clickSound = document.getElementById('click-sound');
-  // play on any button with class “button”
+<script>
   document.querySelectorAll('.button').forEach(btn => {
     btn.addEventListener('click', () => {
-      clickSound.currentTime = 0;
-      clickSound.play();
+      // create & play a new audio instance every time
+      new Audio('images/click2.mp3').play();
     });
   });
 </script>
