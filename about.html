@@ -149,27 +149,22 @@
   </div>
 
 
-<script>
-  const clickSound = document.getElementById('click-sound');
-
-  // play on every .button click
-  document.querySelectorAll('.button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      clickSound.pause();
-      clickSound.currentTime = 0;
-      clickSound.play();
+  <script>
+    const clickSound = document.getElementById('click-sound');
+    document.querySelectorAll('.button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        clickSound.pause();
+        clickSound.currentTime = 0;
+        clickSound.play();
+      });
     });
-  });
 
-  // when page is restored from back/forward cache
-  window.addEventListener('pageshow', event => {
-    clickSound.load();
-  });
-  // also handle normal tab-switch or reload
-  document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) clickSound.load();
-  });
-</script>
+    // reload audio on every show (back/forward cache or normal reload)
+    window.addEventListener('pageshow', () => clickSound.load());
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) clickSound.load();
+    });
+  </script>
 
 
 
