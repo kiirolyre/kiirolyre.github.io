@@ -4,22 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gallery - kiirolyre</title>
-
-  <!-- Import the Lato font for consistent styling -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-
-
-
   <style>
-    /* Base page styles: font, alignment, and background */
-
-    /* SVG bunny illustration */
-    .bunny-doodle {
-      width: 100px;
-      height: auto;
-      margin-bottom: 12px;
-    }
-    
     body {
       margin: 0;
       padding: 40px 20px;
@@ -31,7 +17,6 @@
       align-items: center;
     }
 
-    /* Container for the title and back button */
     .title-wrapper {
       position: relative;
       width: 100%;
@@ -39,7 +24,6 @@
       margin-bottom: 24px;
     }
 
-    /* Back button styled to sit to the left of the title */
     .back-button {
       position: absolute;
       top: 50%;
@@ -56,7 +40,7 @@
       color: black;
     }
 
-    /* Blue title bar styled to match homepage button */
+    /* Match homepage light blue button */
     .title-button {
       padding: 16px;
       font-size: 20px;
@@ -68,15 +52,8 @@
       color: #000;
       width: 100%;
       box-sizing: border-box;
-      height: 58px;
-      line-height: 26px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    
-    /* Beige container for the image grid */
     .gallery-box {
       background-color: #f2e9df;
       padding: 12px;
@@ -86,18 +63,22 @@
       box-sizing: border-box;
     }
 
-    /* Masonry-style collage layout */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 6px;
     }
 
-    /* Cropped thumbnails with varied heights */
-    .gallery-grid a {
-      display: block;
-      overflow: hidden;
+    .gallery-grid button {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border: none;
+      padding: 0;
+      margin: 0;
       border-radius: 4px;
+      overflow: hidden;
+      background: none;
+      cursor: pointer;
     }
 
     .gallery-grid img {
@@ -105,45 +86,44 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      background: #132234;
-      transition: transform 0.2s ease;
     }
 
-    .gallery-grid a:hover img {
-      transform: scale(1.05);
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
     }
 
-    /* Different heights for collage effect */
-    .tall {
-      grid-row: span 2;
-      aspect-ratio: 1 / 1.6;
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
     }
 
-    .short {
-      aspect-ratio: 1 / 1;
+
+    /* Tiny bunny at bottom */
+    .bunny-doodle {
+      width: 40px;
+      height: auto;
+      margin: 24px 0 0;
     }
+    
   </style>
 </head>
 <body>
 
 
-  <!-- Bunny SVG illustration at the top -->
-  <svg class="bunny-doodle" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 20 C15 10, 5 5, 10 20" stroke="#000" stroke-width="3" fill="none"/>
-    <path d="M100 20 C95 10, 85 5, 90 20" stroke="#000" stroke-width="3" fill="none"/>
-    <path d="M60 20 Q65 35 60 50 Q55 65 65 70 Q75 75 70 90" stroke="#000" stroke-width="3" fill="none"/>
-    <path d="M50 90 Q60 95 70 90" stroke="#000" stroke-width="3" fill="none"/>
-    <line x1="58" y1="60" x2="58" y2="70" stroke="#000" stroke-width="2" />
-    <line x1="62" y1="60" x2="62" y2="70" stroke="#000" stroke-width="2" />
-  </svg>
-  
-
 <audio id="click-sound" src="images/click.mp3" preload="auto"></audio>
 
 
   
-
-  <!-- Title area with back button and page title -->
   <div class="title-wrapper">
     <div class="back-button">
       <a href="index.html" title="Back to home">⤺</a>
@@ -151,32 +131,34 @@
     <div class="title-button">gallery</div>
   </div>
 
-  <!-- Beige box holding the image collage -->
   <div class="gallery-box">
     <div class="gallery-grid">
-      <!-- Replace these with real image file paths -->
-      <a href="fullsize1.jpg" target="_blank"><img src="thumb1.jpg" alt="image" class="short" /></a>
-      <a href="fullsize2.jpg" target="_blank"><img src="thumb2.jpg" alt="image" class="short" /></a>
-      <a href="fullsize3.jpg" target="_blank"><img src="thumb3.jpg" alt="image" class="short" /></a>
-      <a href="fullsize4.jpg" target="_blank"><img src="thumb4.jpg" alt="image" class="tall" /></a>
-      <a href="fullsize5.jpg" target="_blank"><img src="thumb5.jpg" alt="image" class="short" /></a>
-      <a href="fullsize6.jpg" target="_blank"><img src="thumb6.jpg" alt="image" class="tall" /></a>
-      <a href="fullsize7.jpg" target="_blank"><img src="thumb7.jpg" alt="image" class="short" /></a>
-      <a href="fullsize8.jpg" target="_blank"><img src="thumb8.jpg" alt="image" class="short" /></a>
-      <a href="fullsize9.jpg" target="_blank"><img src="thumb9.jpg" alt="image" class="short" /></a>
-      <a href="fullsize10.jpg" target="_blank"><img src="thumb10.jpg" alt="image" class="tall" /></a>
-      <a href="fullsize11.jpg" target="_blank"><img src="thumb11.jpg" alt="image" class="short" /></a>
-      <a href="fullsize12.jpg" target="_blank"><img src="thumb12.jpg" alt="image" class="short" /></a>
-      <a href="fullsize13.jpg" target="_blank"><img src="thumb13.jpg" alt="image" class="short" /></a>
-      <a href="fullsize14.jpg" target="_blank"><img src="thumb14.jpg" alt="image" class="tall" /></a>
-      <a href="fullsize15.jpg" target="_blank"><img src="thumb15.jpg" alt="image" class="short" /></a>
-      <a href="fullsize16.jpg" target="_blank"><img src="thumb16.jpg" alt="image" class="short" /></a>
-      <a href="fullsize17.jpg" target="_blank"><img src="thumb17.jpg" alt="image" class="tall" /></a>
-      <a href="fullsize18.jpg" target="_blank"><img src="thumb18.jpg" alt="image" class="short" /></a>
+      <!-- Add new images by duplicating this line and changing the filenames -->
+      <button onclick="openLightbox('fullsize1.jpg')"><img src="thumb1.jpg" alt="image" /></button>
+      <button onclick="openLightbox('fullsize2.jpg')"><img src="thumb2.jpg" alt="image" /></button>
+      <button onclick="openLightbox('fullsize3.jpg')"><img src="thumb3.jpg" alt="image" /></button>
+      <button onclick="openLightbox('fullsize4.jpg')"><img src="thumb4.jpg" alt="image" /></button>
+      <button onclick="openLightbox('fullsize5.jpg')"><img src="thumb5.jpg" alt="image" /></button>
+      <button onclick="openLightbox('fullsize6.jpg')"><img src="thumb6.jpg" alt="image" /></button>
     </div>
   </div>
 
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="enlarged image" />
+  </div>
 
+  <script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
 
 <script>
   // path to your click‐sound file
@@ -191,6 +173,16 @@
   });
 </script>
 
+    <!-- Bunny SVG illustration at the top -->
+  <svg class="bunny-doodle" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 20 C15 10, 5 5, 10 20" stroke="#000" stroke-width="3" fill="none"/>
+    <path d="M100 20 C95 10, 85 5, 90 20" stroke="#000" stroke-width="3" fill="none"/>
+    <path d="M60 20 Q65 35 60 50 Q55 65 65 70 Q75 75 70 90" stroke="#000" stroke-width="3" fill="none"/>
+    <path d="M50 90 Q60 95 70 90" stroke="#000" stroke-width="3" fill="none"/>
+    <line x1="58" y1="60" x2="58" y2="70" stroke="#000" stroke-width="2" />
+    <line x1="62" y1="60" x2="62" y2="70" stroke="#000" stroke-width="2" />
+  </svg>
+  
   
 </body>
 </html>
