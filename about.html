@@ -112,6 +112,10 @@
 </head>
 <body>
 
+
+<audio id="click-sound" src="images/click.mp3" preload="auto"></audio>
+
+  
   <!-- Title area with back button and page title -->
   <div class="title-wrapper">
     <div class="back-button">
@@ -142,6 +146,22 @@
       </a>
     </div>
   </div>
+
+
+  <script>
+  const clickSound = document.getElementById('click-sound');
+  document.querySelectorAll('.button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      clickSound.pause();
+      clickSound.currentTime = 0;
+      clickSound.play();
+    });
+  });
+  window.addEventListener('pageshow', event => {
+    if (event.persisted) clickSound.load();
+  });
+</script>
+
 
 </body>
 </html>
