@@ -179,16 +179,15 @@
 
 
 <script>
-  const clickSound = document.getElementById('click-sound');
-  document.querySelectorAll('.button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      clickSound.pause();
-      clickSound.currentTime = 0;
-      clickSound.play();
-    });
-  });
-  window.addEventListener('pageshow', event => {
-    if (event.persisted) clickSound.load();
+  // path to your click‐sound file
+  const CLICK_SRC = '/images/click.mp3';
+
+  // play immediately on pointerdown (before navigation or bfcache kicks in)
+  document.addEventListener('pointerdown', e => {
+    // only fire when a .button (or child of one) is pressed
+    if (e.target.closest('.button')) {
+      new Audio(CLICK_SRC).play();
+    }
   });
 </script>
 
