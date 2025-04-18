@@ -182,21 +182,30 @@
     </a>
   </div>
 
-<script>
-  // grab the preloaded audio element
+
+
+
+
+  <script>
   const clickSound = document.getElementById('click-sound');
 
-  // attach to every button
+  // On every click, rewind+play as before
   document.querySelectorAll('.button').forEach(btn => {
     btn.addEventListener('click', () => {
-      // rewind to start
       clickSound.pause();
       clickSound.currentTime = 0;
-      // play
       clickSound.play();
     });
   });
+
+  // When returning via back/forward, reload the audio so it's not stuck ended
+  window.addEventListener('pageshow', event => {
+    if (event.persisted) {
+      clickSound.load();
+    }
+  });
 </script>
+
 
 
 
