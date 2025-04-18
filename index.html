@@ -154,7 +154,8 @@
 </head>
 <body>
 
-<audio id="click-sound" src="images/click.mp3" preload="auto"></audio>
+  <!-- preload click sound -->
+  <audio id="click-sound" src="/images/click.mp3" preload="auto"></audio>
 
   
   <!-- Main logo image -->
@@ -186,10 +187,10 @@
 
 
 
-  <script>
+<script>
   const clickSound = document.getElementById('click-sound');
 
-  // On every click, rewind+play as before
+  // play on every .button click
   document.querySelectorAll('.button').forEach(btn => {
     btn.addEventListener('click', () => {
       clickSound.pause();
@@ -198,13 +199,16 @@
     });
   });
 
-  // When returning via back/forward, reload the audio so it's not stuck ended
+  // when page is restored from back/forward cache
   window.addEventListener('pageshow', event => {
-    if (event.persisted) {
-      clickSound.load();
-    }
+    clickSound.load();
+  });
+  // also handle normal tab-switch or reload
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) clickSound.load();
   });
 </script>
+
 
 
 
