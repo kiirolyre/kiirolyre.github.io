@@ -154,7 +154,9 @@
 </head>
 <body>
 
+<audio id="click-sound" src="images/click.mp3" preload="auto"></audio>
 
+  
   <!-- Main logo image -->
   <div class="logo">
     <img src="images/kiri2.png" alt="Logo" /> <!-- Replace 'logo.png' with your own file -->
@@ -181,13 +183,21 @@
   </div>
 
 <script>
+  // grab the preloaded audio element
+  const clickSound = document.getElementById('click-sound');
+
+  // attach to every button
   document.querySelectorAll('.button').forEach(btn => {
     btn.addEventListener('click', () => {
-      // create & play a new audio instance every time
-      new Audio('images/click2.mp3').play();
+      // rewind to start
+      clickSound.pause();
+      clickSound.currentTime = 0;
+      // play
+      clickSound.play();
     });
   });
 </script>
+
 
 
 </body>
