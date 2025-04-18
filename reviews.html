@@ -103,6 +103,10 @@
   </style>
 </head>
 <body>
+
+  <!-- preload click sound -->
+  <audio id="click-sound" src="/images/click.mp3" preload="auto"></audio>
+  
   <div class="container">
     <div class="title-wrapper">
       <a href="index.html" class="back-button" title="Back">⤺</a>
@@ -366,5 +370,19 @@
       
     </div>
   </div>
+
+<script>
+  // path to your click‐sound file
+  const CLICK_SRC = '/images/click.mp3';
+
+  // play immediately on pointerdown (before navigation or bfcache kicks in)
+  document.addEventListener('pointerdown', e => {
+    // only fire when a .button (or child of one) is pressed
+    if (e.target.closest('.button')) {
+      new Audio(CLICK_SRC).play();
+    }
+  });
+</script>
+  
 </body>
 </html>
