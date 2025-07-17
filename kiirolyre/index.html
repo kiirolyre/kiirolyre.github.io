@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Page setup -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kiirolyre</title>
+
+  <!-- Google Font import: Lato -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+
+  <style>
+    /* Apply box-sizing to all elements */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Body layout and styling */
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Lato', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fefaf7; /* Light cream background */
+      color: #000;
+      min-height: 100vh;
+    }
+
+
+    /* Logo container: centered */
+    .logo {
+      width: 300px;
+      margin: 0 auto ; /* center horizontally and space below */
+      text-align: center;
+    }
+    /* Logo image: block and centered */
+    .logo img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    
+
+    /* Title and subtitle container */
+    .title-subtitle-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* Left align text */
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 40px;
+    }
+
+    /* Main site title */
+    .title {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 10px 0 4px;
+    }
+
+    /* Site subtitle / tagline */
+    .subtitle {
+      font-size: 14px;
+    }
+
+    /* Wrapper for all the buttons */
+    .buttons {
+      width: 100%;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px; /* Space between buttons */
+    }
+
+    /* Base button style */
+    .button {
+      position: relative;
+      overflow: visible; /* Needed for the sparkle overlay */
+      padding: 16px;
+      font-size: 20px;
+      border: none;
+      border-radius: 16px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      width: 100%;
+      background-color: #007BFF; /* Default blue */
+      color: white;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    /* Button hover effect */
+    .button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    /* Button active (press) effect */
+    .button:active {
+      background-color: #003f7f;
+      transform: scale(0.98);
+      transition: background-color 0.1s ease, transform 0.1s ease;
+    }
+
+    /* Light blue themed button (used for most links) */
+    .button.blue {
+      background-color: #c8e7f7;
+      color: #000;
+    }
+
+    /* Beige button with bold text (used for Depop review button) */
+    .button.beige {
+      background-color: #f2e9df;
+      color: #000;
+      font-weight: bold;
+    }
+
+    /* Sparkle emoji animation on top right of the depop button */
+    .sparkle-overlay {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 24px;
+      animation: floatSparkles 2s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 2; /* On top of button */
+    }
+
+    /* Sparkle animation movement */
+    @keyframes floatSparkles {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(-4px); opacity: 0.6; }
+    }
+
+    /* Responsive styles for larger screens */
+    @media (min-width: 768px) {
+      body {
+        padding: 60px 40px;
+      }
+      .button {
+        font-size: 22px;
+        padding: 18px;
+      }
+      .title {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- preload click sound -->
+  <audio id="click-sound" src="/images/click.mp3" preload="auto"></audio>
+
+  
+  <!-- Main logo image -->
+  <div class="logo">
+    <img src="images/kiri2.png" alt="Logo" /> <!-- Replace 'logo.png' with your own file -->
+  </div>
+
+  <!-- Title and tagline -->
+  <div class="title-subtitle-wrapper">
+    <div class="title">kiirolyre</div> <!-- Your brand name -->
+    <div class="subtitle">welcome to my site!! i promise my .zip isn’t malware hehe</div> <!-- Catchy tagline -->
+  </div>
+
+  <!-- Navigation buttons -->
+  <div class="buttons">
+    <!-- Each <a> can link to another page or section -->
+    <a href="/about.html" class="button blue">about me</a>
+    <a href="https://instagram.com/kiirolyre" target="_blank" rel="noopener" class="button blue">instagram</a>
+    <a href="#" class="button blue"><s>gallery</s></a>
+
+    <!-- Special Depop button with sparkles -->
+    <a href="/reviews.html" class="button beige">
+      depop reviews
+      <span class="sparkle-overlay">✨✨</span>
+    </a>
+  </div>
+
+
+
+
+
+<script>
+  // path to your click‐sound file
+  const CLICK_SRC = '/images/click.mp3';
+
+  // play immediately on pointerdown (before navigation or bfcache kicks in)
+  document.addEventListener('pointerdown', e => {
+    // only fire when a .button (or child of one) is pressed
+    if (e.target.closest('.button')) {
+      new Audio(CLICK_SRC).play();
+    }
+  });
+</script>
+
+
+
+
+
+
+</body>
+</html>

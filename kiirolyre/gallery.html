@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - kiirolyre</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Lato', sans-serif;
+      background: #fefaf7;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .title-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 24px;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 50%;
+      left: -40px;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .back-button a {
+      text-decoration: none;
+      color: black;
+    }
+
+    /* Match homepage light blue button */
+    .title-button {
+      padding: 16px;
+      font-size: 20px;
+      border: none;
+      border-radius: 16px;
+      text-align: center;
+      text-decoration: none;
+      background-color: #c8e7f7;
+      color: #000;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .gallery-box {
+      background-color: #f2e9df;
+      padding: 12px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 300px;
+      box-sizing: border-box;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .gallery-grid button {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border: none;
+      padding: 0;
+      margin: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      background: none;
+      cursor: pointer;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+    }
+
+
+    /* Tiny bunny at bottom */
+    .bunny-doodle {
+      width: 40px;
+      height: auto;
+      margin: 24px 0 0;
+    }
+    
+  </style>
+</head>
+<body>
+
+
+<audio id="click-sound" src="images/click.mp3" preload="auto"></audio>
+
+
+  
+  <div class="title-wrapper">
+    <div class="back-button">
+      <a href="index.html" title="Back to home">⤺</a>
+    </div>
+    <div class="title-button">gallery</div>
+  </div>
+
+  <div class="gallery-box">
+    <div class="gallery-grid">
+      <!-- Add new images by duplicating this line and changing the filenames -->
+      <button onclick="openLightbox('fullsize1.jpg')"><img src="thumb1.jpg" alt="image" /></button>
+      <button onclick="openLightbox('fullsize2.jpg')"><img src="thumb2.jpg" alt="image" /></button>
+      <button onclick="openLightbox('fullsize3.jpg')"><img src="thumb3.jpg" alt="image" /></button>
+      <button onclick="openLightbox('fullsize4.jpg')"><img src="thumb4.jpg" alt="image" /></button>
+      <button onclick="openLightbox('fullsize5.jpg')"><img src="thumb5.jpg" alt="image" /></button>
+      <button onclick="openLightbox('fullsize6.jpg')"><img src="thumb6.jpg" alt="image" /></button>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="enlarged image" />
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+
+<script>
+  // path to your click‐sound file
+  const CLICK_SRC = '/images/click.mp3';
+
+  // play immediately on pointerdown (before navigation or bfcache kicks in)
+  document.addEventListener('pointerdown', e => {
+    // only fire when a .button (or child of one) is pressed
+    if (e.target.closest('.button')) {
+      new Audio(CLICK_SRC).play();
+    }
+  });
+</script>
+
+    <!-- Bunny SVG illustration at the top -->
+  <svg class="bunny-doodle" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 20 C15 10, 5 5, 10 20" stroke="#000" stroke-width="3" fill="none"/>
+    <path d="M100 20 C95 10, 85 5, 90 20" stroke="#000" stroke-width="3" fill="none"/>
+    <path d="M60 20 Q65 35 60 50 Q55 65 65 70 Q75 75 70 90" stroke="#000" stroke-width="3" fill="none"/>
+    <path d="M50 90 Q60 95 70 90" stroke="#000" stroke-width="3" fill="none"/>
+    <line x1="58" y1="60" x2="58" y2="70" stroke="#000" stroke-width="2" />
+    <line x1="62" y1="60" x2="62" y2="70" stroke="#000" stroke-width="2" />
+  </svg>
+  
+  
+</body>
+</html>

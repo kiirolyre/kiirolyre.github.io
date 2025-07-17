@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me - kiirolyre</title>
+
+  <!-- Import the Lato font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* This section controls the global styling for the whole page (background, font, layout). */
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Lato', sans-serif;
+      background: #fefaf7; /* light cream background */
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Container for the title and back button */
+    .title-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 300px; /* matches button and content width */
+      margin-bottom: 24px; /* spacing under the title section */
+    }
+
+    /* The back button (⤺ icon) that sits left of the title */
+    .back-button {
+      position: absolute;
+      top: 50%;
+      left: -40px; /* pull it left of the blue title */
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 24px; /* make it a bit large and cute */
+      cursor: pointer;
+    }
+
+    .back-button a {
+      text-decoration: none;
+      color: black;
+    }
+
+    /* This is the blue title that mimics the homepage button style */
+    .title-button {
+      padding: 16px;
+      font-size: 20px;
+      border: none;
+      border-radius: 16px;
+      text-align: center;
+      text-decoration: none;
+      background-color: #c8e7f7;
+      color: #000;
+      width: 100%;
+      box-sizing: border-box;
+      height: 58px; /* fixed height to match the homepage button */
+      line-height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Shared base styles for the beige boxes */
+    .about-box,
+    .icon-box {
+      background-color: #f2e9df;
+      padding: 24px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 300px;
+      box-sizing: border-box;
+    }
+
+    /* Top beige box (about section) */
+    .about-box {
+      margin-bottom: 24px; /* spacing before the icon box */
+    }
+
+    /* Bottom beige box (icon row) */
+    .icon-box {
+      height: 58px; /* exactly matches the height of the blue title */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Style for the paragraph text inside about box */
+    .about-box p {
+      margin-top: 0;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* Layout and spacing for the row of icons */
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 50px; /* spacing between each icon */
+    }
+
+    /* Individual icon image sizing */
+    .footer-icons img {
+      width: 28px;
+      height: 28px;
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- preload click sound -->
+  <audio id="click-sound" src="/images/click.mp3" preload="auto"></audio>
+
+  
+  <!-- Title area with back button and page title -->
+  <div class="title-wrapper">
+    <div class="back-button">
+      <a href="index.html" title="Back to home">⤺</a>
+    </div>
+    <div class="title-button">about me</div>
+  </div>
+
+  <!-- First beige box: your about text -->
+  <div class="about-box">
+    <p>Hi, I'm Kiri! Thank you for viewing my website.</p>
+    <p>I make beaded jewellery & trinkets, 3D model art, and of course normal drawings too!</p>
+    <p>During the day I work full time in cyber security, and at night I run my small business— Mostly online, but I'm actively working on my IRL market presence („• ֊ •„)੭</p>
+    <p>Every package is styled with the same care as what’s inside. Peep my <a href="/reviews.html" >Depop reviews</a> and you’ll see how much love goes into every order 💌</p>
+  </div>
+
+  <!-- Second beige box: icon row -->
+  <div class="icon-box">
+    <div class="footer-icons">
+      <a href="https://www.instagram.com/kiirolyre/" target="_blank" rel="noopener noreferrer">
+        <img src="images/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://kiirolyre.square.site/" target="_blank" rel="noopener noreferrer">
+        <img src="images/store.png" alt="Store">
+      </a>
+      <a href="https://discord.com/users/450249240590155786" target="_blank" rel="noopener noreferrer">
+        <img src="images/discord.png" alt="Discord">
+      </a>
+    </div>
+  </div>
+
+
+<script>
+  // path to your click‐sound file
+  const CLICK_SRC = '/images/click.mp3';
+
+  // play immediately on pointerdown (before navigation or bfcache kicks in)
+  document.addEventListener('pointerdown', e => {
+    // only fire when a .button (or child of one) is pressed
+    if (e.target.closest('.button')) {
+      new Audio(CLICK_SRC).play();
+    }
+  });
+</script>
+
+
+
+
+</body>
+</html>
