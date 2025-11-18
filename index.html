@@ -677,7 +677,34 @@ meow
 
     /* Ultra-round corners */
     .rounded-extra { border-radius: 3rem; }
-    
+
+    /* The glowy shiny text */
+      @keyframes floatText {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+  }
+
+  @keyframes shimmer {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .float-shimmer-gold {
+    animation: floatText 2.5s ease-in-out infinite,
+               shimmer 4s ease-in-out infinite;
+    background: linear-gradient(90deg, #fbbf24, #f97316, #fed7aa);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+     /* Remove ugly underline */
+  a.float-shimmer-gold {
+    text-decoration: none;
+  }
+
   </style>
 
 </head>
@@ -783,7 +810,12 @@ meow
          <!--  <img src="images/mii_si .png" alt="M" class="absolute bottom-32 right-2 w-46 h-2 sm:w-16 sm:h-16 z-50 sm:-translate-y-3/4 -translate-y-1/2"> -->
           <img src="images/mii_sit.png" alt="Mii character" width="119" height="119" style="position:absolute; top:0; left:12rem; transform: translateY(-86%); z-index:50;">
           <h3 class="text-[1.8rem] text-[#889acd] font-itim tracking-tight">Tickets</h3>
-          <p class="relative text-xl text-gray-800 mt-1">Available Now!</p>
+
+         <!-- <p class="relative text-xl text-gray-800 mt-1">Available Now!</p> -->
+         <!-- <p class="relative text-xl mt-1 float-shimmer-gold">Available Now!</p> this part was normal but i wanted to hyperlink and remove underline -->
+          <p class="relative text-xl mt-1"><a href="https://events.humanitix.com/kiimart" target="_blank" rel="noopener noreferrer" class="float-shimmer-gold">Available Now!</a></p>
+
+
           
           <p class="text-base text-gray-500 mt-1"><a href="https://events.humanitix.com/kiimart" target="_blank" rel="noopener noreferrer" class="underline text-gray-500">Register here for FREE entry!</a> </p>
         
